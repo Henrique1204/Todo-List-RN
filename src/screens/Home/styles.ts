@@ -11,6 +11,11 @@ const Styles = StyleSheet.create({
 		marginTop: 24,
 		marginBottom: 40,
 	},
+	form: {
+		width: '100%',
+		paddingLeft: 24,
+		paddingRight: 24,
+	},
 });
 
 export default Styles;
