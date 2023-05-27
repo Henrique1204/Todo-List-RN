@@ -3,6 +3,8 @@ import { SafeAreaView, StatusBar } from 'react-native';
 
 import { colors } from './src/core/assets/theme';
 
+import Home from './src/screens/Home';
+
 const App: React.FC = () => {
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: colors.base['gray-700'] }}>
@@ -11,6 +13,8 @@ const App: React.FC = () => {
 				backgroundColor='transparent'
 				translucent
 			/>
+
+			<Home />
 		</SafeAreaView>
 	);
 };
