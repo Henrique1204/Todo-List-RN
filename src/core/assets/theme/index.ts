@@ -3,11 +3,12 @@ import {
 	IColorsEnum,
 	IFeedbackColorsEnum,
 	IProductColorsEnum,
+	ITypography,
 } from '../../../@types/core/theme';
 
 import { baseColors, feedbackColors, productColors } from './colors';
 
-export const typography = {
+export const typography: ITypography = {
 	smallSize: 12,
 	normalSize: 14,
 	bigSize: 16,

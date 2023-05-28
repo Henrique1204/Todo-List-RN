@@ -16,6 +16,13 @@ const Styles = StyleSheet.create({
 		bottom: -50,
 		zIndex: 0,
 	},
+	listHeader: {
+		width: '100%',
+
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
 });
 
 export default Styles;
