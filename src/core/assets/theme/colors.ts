@@ -6,7 +6,8 @@ export const productColors = {
 };
 
 export const baseColors = {
-	'gray-700': '#0D0D0D',
+	'gray-800': '#0D0D0D',
+	'gray-700': '#191919',
 	'gray-600': '#1A1A1A',
 	'gray-500': '#262626',
 	'gray-400': '#333333',

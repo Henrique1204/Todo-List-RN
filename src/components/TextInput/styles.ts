@@ -17,7 +17,7 @@ const Styles = StyleSheet.create({
 		flex: 1,
 	},
 	inputEmpty: {
-		borderColor: colors.base['gray-700'],
+		borderColor: colors.base['gray-800'],
 	},
 	inputFilled: {
 		borderColor: colors.product['purple-dark'],

@@ -7,7 +7,7 @@ import Home from './src/screens/Home';
 
 const App: React.FC = () => {
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: colors.base['gray-700'] }}>
+		<SafeAreaView style={{ flex: 1, backgroundColor: colors.base['gray-800'] }}>
 			<StatusBar
 				barStyle='light-content'
 				backgroundColor='transparent'

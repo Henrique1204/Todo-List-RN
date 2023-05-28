@@ -8,6 +8,9 @@ const Styles = StyleSheet.create({
 
 		flexDirection: 'row',
 		gap: 4,
+
+		position: 'relative',
+		zIndex: 1,
 	},
 });
 
