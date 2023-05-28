@@ -3,7 +3,9 @@ import { TextInput as Input } from 'react-native';
 import { TextInput as ITextInput } from 'react-native/types';
 
 import { colors } from '../../core/assets/theme';
+
 import isEmptyString from '../../helpers/isEmptyString';
+import uniteStyles from '../../helpers/uniteStyles';
 
 import Styles from './styles';
 
@@ -25,7 +27,7 @@ const TextInput = React.forwardRef<ITextInput, ITextInputProps>(
 				ref={ref}
 				value={value}
 				onChangeText={onChange}
-				style={{ ...Styles.input, ...borderStyle }}
+				style={uniteStyles(Styles.input, borderStyle)}
 				defaultValue=''
 				placeholderTextColor={colors.base['gray-300']}
 				{...props}
