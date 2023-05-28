@@ -4,7 +4,7 @@ import { colors } from '../../core/assets/theme';
 const Styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		height: Dimensions.get('screen').height - 165,
+		height: Dimensions.get('screen').height - 167,
 		paddingTop: 58,
 		paddingRight: 24,
 		paddingBottom: 74,

@@ -4,6 +4,7 @@ import { FlatList, View } from 'react-native';
 import Styles from './styles';
 
 import ListCount from '../ListCount';
+import ListEmpty from '../ListEmpty';
 
 const MainList: React.FC = () => {
 	return (
@@ -17,6 +18,7 @@ const MainList: React.FC = () => {
 						<ListCount label='Concluídas' color='purple' count={0} />
 					</View>
 				}
+				ListEmptyComponent={<ListEmpty />}
 			/>
 		</View>
 	);

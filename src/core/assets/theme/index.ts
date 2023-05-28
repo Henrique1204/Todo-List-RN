@@ -12,7 +12,6 @@ export const typography: ITypography = {
 	smallSize: 12,
 	normalSize: 14,
 	bigSize: 16,
-	lineHeight: 1.4,
 	weightNormal: 'regular',
 	weightEmphasis: 'bold',
 };
@@ -29,4 +28,10 @@ export const getColorByKey = (key: IColorsEnum): string => {
 		baseColors?.[key as IBaseColorsEnum] ||
 		feedbackColors?.[key as IFeedbackColorsEnum]
 	);
+};
+
+export const getLineHeight = (fontSize: number): number => {
+	const lineHeightScale = 1.4;
+
+	return fontSize * lineHeightScale;
 };

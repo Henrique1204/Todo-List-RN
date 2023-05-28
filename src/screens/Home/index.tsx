@@ -6,7 +6,7 @@ import Styles from './styles';
 import Form, { onSubmitFn } from '../../components/Form';
 import MainList from '../../components/MainList';
 
-const LogoPng = require('../../core/assets/images/Logo.png');
+const LogoPng = require('../../core/assets/images/logo.png');
 
 const Home: React.FC = () => {
 	const handleOnSubmit: onSubmitFn = (data, onSuccess) => {};

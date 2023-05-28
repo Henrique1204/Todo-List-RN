@@ -22,7 +22,7 @@ export interface ITypography {
 	smallSize: number;
 	normalSize: number;
 	bigSize: number;
-	lineHeight: number;
+
 	weightNormal: 'regular';
 	weightEmphasis: 'bold';
 }
