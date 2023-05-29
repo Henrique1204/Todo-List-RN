@@ -10,6 +10,7 @@ const Styles = StyleSheet.create({
 		borderRadius: 8,
 		borderWidth: 1,
 		borderColor: colors.base['gray-400'],
+		marginBottom: 8,
 
 		backgroundColor: colors.base['gray-500'],
 

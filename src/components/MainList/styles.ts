@@ -18,6 +18,7 @@ const Styles = StyleSheet.create({
 	},
 	listHeader: {
 		width: '100%',
+		marginBottom: 20,
 
 		flexDirection: 'row',
 		alignItems: 'center',

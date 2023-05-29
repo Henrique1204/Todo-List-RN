@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import Styles from './styles';
 
+import { IListCardProps } from '../../@types/components/ListCard';
+
 import Icons from '../../core/assets/icons';
 
 import uniteStyles from '../../helpers/uniteStyles';
@@ -11,27 +13,21 @@ import useActiveClick from '../../hooks/useActiveClick';
 
 import CheckBox from '../CheckBox';
 
-interface IListCardProps {
-	id: number;
-	content: string;
-	completed: boolean;
-
-	onRemove: (id: number) => void;
-	onChangeCompleted: (toggle: boolean) => void;
-}
-
 const ListCard: React.FC<IListCardProps> = ({
 	id,
 	content,
 	completed,
-	onRemove,
-	onChangeCompleted,
+	removeTask,
+	updateTask,
 }) => {
 	const { active, ...onPressMethods } = useActiveClick();
 
 	return (
 		<View style={Styles.container}>
-			<CheckBox onChange={onChangeCompleted} initialValue={completed} />
+			<CheckBox
+				onChange={(toggle) => updateTask(id, toggle)}
+				initialValue={completed}
+			/>
 
 			<Text
 				style={uniteStyles(
@@ -45,7 +41,7 @@ const ListCard: React.FC<IListCardProps> = ({
 			<TouchableOpacity
 				activeOpacity={1}
 				style={Styles.trashButton}
-				onPress={() => onRemove(id)}
+				onPress={() => removeTask(id)}
 				{...onPressMethods}
 			>
 				<Icons.Trash color={active ? 'danger' : 'gray-300'} />

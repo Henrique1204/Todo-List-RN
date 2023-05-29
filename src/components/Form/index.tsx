@@ -10,7 +10,7 @@ import isEmptyString from '../../helpers/isEmptyString';
 import Button from '../Button';
 import TextInput from '../TextInput';
 
-export type onSubmitFn = (data: string, onSuccess: () => void) => void;
+export type onSubmitFn = (data: string, clearForm: () => void) => void;
 
 interface IFormProps {
 	onSubmit: onSubmitFn;
@@ -21,13 +21,13 @@ const Form: React.FC<IFormProps> = ({ onSubmit }) => {
 
 	const inputRef = React.useRef<ITextInput>(null);
 
-	const clearInput = () => {
+	const clearForm = () => {
 		setText('');
 
 		inputRef?.current?.focus();
 	};
 
-	const handleOnPress = () => onSubmit(text, clearInput);
+	const handleOnPress = () => onSubmit(text, clearForm);
 
 	return (
 		<View style={Styles.container}>
