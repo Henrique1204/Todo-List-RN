@@ -32,8 +32,13 @@ const MainList: React.FC<IMainListProps> = ({
 				)}
 				ListHeaderComponent={
 					<View style={Styles.listHeader}>
-						<ListCount label='Criadas' color='blue' count={0} />
-						<ListCount label='Concluídas' color='purple' count={0} />
+						<ListCount label='Criadas' color='blue' count={data.length} />
+
+						<ListCount
+							label='Concluídas'
+							color='purple'
+							count={data.filter(({ completed }) => completed).length}
+						/>
 					</View>
 				}
 				ListEmptyComponent={<ListEmpty />}
