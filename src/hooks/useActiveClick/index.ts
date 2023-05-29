@@ -9,6 +9,9 @@ interface IUseActiveClickReturn {
 
 type useActiveClickFn = () => IUseActiveClickReturn;
 
+/**
+ * Hook para simular o evento de "active" do css do navegador.
+ */
 const useActiveClick: useActiveClickFn = () => {
 	const [active, setActive] = React.useState<boolean>(false);
 
