@@ -1,11 +1,11 @@
 import React from 'react';
+
 import { TextInput as Input } from 'react-native';
 import { TextInput as ITextInput } from 'react-native/types';
 
 import { colors } from '../../core/assets/theme';
-
-import isEmptyString from '../../helpers/isEmptyString';
-import uniteStyles from '../../helpers/uniteStyles';
+import isEmptyString from '../../core/helpers/isEmptyString';
+import uniteStyles from '../../core/helpers/uniteStyles';
 
 import Styles from './styles';
 

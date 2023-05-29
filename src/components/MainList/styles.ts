@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+
 import { colors } from '../../core/assets/theme';
 
 const Styles = StyleSheet.create({

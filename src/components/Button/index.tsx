@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-import Styles from './styles';
+import uniteStyles from '../../core/helpers/uniteStyles';
 
-import uniteStyles from '../../helpers/uniteStyles';
 import useActiveClick from '../../hooks/useActiveClick';
+
+import Styles from './styles';
 
 interface IButtonProps {
 	onPress: () => void;

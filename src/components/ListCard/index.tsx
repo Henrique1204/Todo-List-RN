@@ -1,17 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import Styles from './styles';
-
 import { IListCardProps } from '../../@types/components/ListCard';
 
 import Icons from '../../core/assets/icons';
-
-import uniteStyles from '../../helpers/uniteStyles';
+import uniteStyles from '../../core/helpers/uniteStyles';
 
 import useActiveClick from '../../hooks/useActiveClick';
 
 import CheckBox from '../CheckBox';
+
+import Styles from './styles';
 
 const ListCard: React.FC<IListCardProps> = ({
 	id,

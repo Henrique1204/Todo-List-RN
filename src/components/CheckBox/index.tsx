@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
-import uniteStyles from '../../helpers/uniteStyles';
+import uniteStyles from '../../core/helpers/uniteStyles';
 import Icons from '../../core/assets/icons';
 
 import Styles from './styles';

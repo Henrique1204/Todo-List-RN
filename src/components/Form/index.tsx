@@ -1,14 +1,15 @@
 import React from 'react';
+
 import { View } from 'react-native';
 import { TextInput as ITextInput } from 'react-native/types';
 
-import Styles from './styles';
-
 import Icons from '../../core/assets/icons';
-import isEmptyString from '../../helpers/isEmptyString';
+import isEmptyString from '../../core/helpers/isEmptyString';
 
 import Button from '../Button';
 import TextInput from '../TextInput';
+
+import Styles from './styles';
 
 export type onSubmitFn = (data: string, clearForm: () => void) => void;
 

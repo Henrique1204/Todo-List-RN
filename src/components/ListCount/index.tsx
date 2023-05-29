@@ -2,8 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { IProductColorsEnum } from '../../@types/core/theme';
+
 import { colors } from '../../core/assets/theme';
-import uniteStyles from '../../helpers/uniteStyles';
+import uniteStyles from '../../core/helpers/uniteStyles';
 
 import Styles from './styles';
 

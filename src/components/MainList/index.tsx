@@ -1,14 +1,14 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 
-import Styles from './styles';
-
 import { ITask } from '../../@types/data/task';
 import { updateTaskFn, removeTaskFn } from '../../@types/components/ListCard';
 
 import ListCount from '../ListCount';
 import ListEmpty from '../ListEmpty';
 import ListCard from '../ListCard';
+
+import Styles from './styles';
 
 interface IMainListProps {
 	data: ITask[];
