@@ -4,6 +4,7 @@ import { Text, TouchableOpacity } from 'react-native';
 import Styles from './styles';
 
 import uniteStyles from '../../helpers/uniteStyles';
+import useActiveClick from '../../hooks/useActiveClick';
 
 interface IButtonProps {
 	onPress: () => void;
@@ -20,14 +21,13 @@ const getBgStyle = (focus: boolean, disabled?: boolean) => {
 };
 
 const Button: React.FC<IButtonProps> = ({ children, label, ...props }) => {
-	const [focus, setFocus] = React.useState<boolean>(false);
+	const { active, ...onPressMethods } = useActiveClick();
 
 	return (
 		<TouchableOpacity
 			activeOpacity={1}
-			style={uniteStyles(Styles.button, getBgStyle(focus, props.disabled))}
-			onPressIn={() => setFocus(true)}
-			onPressOut={() => setFocus(false)}
+			style={uniteStyles(Styles.button, getBgStyle(active, props.disabled))}
+			{...onPressMethods}
 			{...props}
 		>
 			{label ? <Text style={Styles.buttonText}>{label}</Text> : children}
