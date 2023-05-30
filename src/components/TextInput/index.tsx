@@ -9,7 +9,7 @@ import uniteStyles from '../../core/helpers/uniteStyles';
 
 import Styles from './styles';
 
-interface ITextInputProps {
+interface ITextInputProps extends IDefaultProps {
 	value: string;
 	onChange: (value: string) => void;
 

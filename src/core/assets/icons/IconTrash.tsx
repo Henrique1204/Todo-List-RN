@@ -4,10 +4,11 @@ import Svg, { Path } from 'react-native-svg';
 
 import { getColorByKey } from '../theme';
 
-const IconTrash: React.FC<IIconProps> = ({
+const IconTrash: IComponent<IIconProps> = ({
 	color = 'gray-300',
 	width = 13,
 	height = 14,
+	...props
 }) => {
 	return (
 		<Svg
@@ -15,6 +16,7 @@ const IconTrash: React.FC<IIconProps> = ({
 			height={height}
 			viewBox={`0 0 ${width} ${height}`}
 			fill='none'
+			{...props}
 		>
 			<Path
 				d='M8.70214 4.98547H7.37158V10.5073H8.70214V4.98547Z'

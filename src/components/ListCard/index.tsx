@@ -12,7 +12,7 @@ import CheckBox from '../CheckBox';
 
 import Styles from './styles';
 
-const ListCard: React.FC<IListCardProps> = ({
+const ListCard: IComponent<IListCardProps> = ({
 	id,
 	content,
 	completed,
@@ -22,13 +22,16 @@ const ListCard: React.FC<IListCardProps> = ({
 	const { active, ...onPressMethods } = useActiveClick();
 
 	return (
-		<View style={Styles.container}>
+		<View accessible style={Styles.container}>
 			<CheckBox
+				accessibilityHint='Irá adicionar ou remover uma linha no meio do texto dentro do card.'
+				accessibilityLabel='Marca tarefa como concluída ou pendente ao clicar.'
 				onChange={(toggle) => updateTask(id, toggle)}
 				initialValue={completed}
 			/>
 
 			<Text
+				accessibilityLabel='Descrição da tarefa do card.'
 				style={uniteStyles(
 					Styles.text,
 					completed ? Styles.textTick : Styles.textVisible
@@ -38,12 +41,20 @@ const ListCard: React.FC<IListCardProps> = ({
 			</Text>
 
 			<TouchableOpacity
+				accessible
+				accessibilityRole='button'
+				role='button'
+				accessibilityHint='Irá remover o card de tarefa.'
+				accessibilityLabel='Botão de excluir tarefa.'
 				activeOpacity={1}
 				style={Styles.trashButton}
 				onPress={() => removeTask(id)}
 				{...onPressMethods}
 			>
-				<Icons.Trash color={active ? 'danger' : 'gray-300'} />
+				<Icons.Trash
+					accessibilityLabel='Ícone de "lixo" sinalizando que o item pode ser excluído.'
+					color={active ? 'danger' : 'gray-300'}
+				/>
 			</TouchableOpacity>
 		</View>
 	);

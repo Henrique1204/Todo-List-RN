@@ -14,17 +14,23 @@ interface IListCountProp {
 	color: IProductColorsEnum;
 }
 
-const ListCount: React.FC<IListCountProp> = ({ color, count, label }) => {
+const ListCount: IComponent<IListCountProp> = ({ color, count, label }) => {
 	return (
-		<View style={Styles.container}>
+		<View accessible style={Styles.container}>
 			<Text
+				accessibilityLabel={`Título do contador refeten a "${label}."`}
 				style={uniteStyles(Styles.countLabel, { color: colors.product[color] })}
 			>
 				{label}
 			</Text>
 
-			<View style={Styles.countBox}>
-				<Text style={Styles.count}>{count}</Text>
+			<View accessible style={Styles.countBox}>
+				<Text
+					accessibilityLabel={`Quantidade de itens referentes a "${label}".`}
+					style={Styles.count}
+				>
+					{count}
+				</Text>
 			</View>
 		</View>
 	);

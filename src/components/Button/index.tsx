@@ -11,7 +11,6 @@ interface IButtonProps {
 	onPress: () => void;
 
 	label?: string;
-	children?: React.ReactNode;
 	disabled?: boolean;
 }
 
@@ -21,11 +20,17 @@ const getBgStyle = (focus: boolean, disabled?: boolean) => {
 	return focus ? Styles.buttonFocus : Styles.buttonBlur;
 };
 
-const Button: React.FC<IButtonProps> = ({ children, label, ...props }) => {
+const Button: IComponent<IButtonProps> = ({ children, label, ...props }) => {
 	const { active, ...onPressMethods } = useActiveClick();
 
 	return (
 		<TouchableOpacity
+			accessible
+			accessibilityRole='button'
+			role='button'
+			accessibilityState={{
+				disabled: props.disabled,
+			}}
 			activeOpacity={1}
 			style={uniteStyles(Styles.button, getBgStyle(active, props.disabled))}
 			{...onPressMethods}

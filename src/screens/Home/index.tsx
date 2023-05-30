@@ -49,7 +49,13 @@ const Home: React.FC = () => {
 
 	return (
 		<View style={Styles.container}>
-			<Image style={Styles.logo} source={LogoPng} />
+			<Image
+				role='img'
+				accessibilityRole='image'
+				accessibilityLabel='Logo do "TODO APP" com um foguete decolando.'
+				style={Styles.logo}
+				source={LogoPng}
+			/>
 
 			<Form onSubmit={handleOnSubmit} />
 

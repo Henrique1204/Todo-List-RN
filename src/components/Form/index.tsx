@@ -17,7 +17,7 @@ interface IFormProps {
 	onSubmit: onSubmitFn;
 }
 
-const Form: React.FC<IFormProps> = ({ onSubmit }) => {
+const Form: IComponent<IFormProps> = ({ onSubmit }) => {
 	const [text, setText] = React.useState<string>('');
 
 	const inputRef = React.useRef<ITextInput>(null);
@@ -31,16 +31,21 @@ const Form: React.FC<IFormProps> = ({ onSubmit }) => {
 	const handleOnPress = () => onSubmit(text, clearForm);
 
 	return (
-		<View style={Styles.container}>
+		<View accessible style={Styles.container}>
 			<TextInput
+				accessibilityLabel='Campo para descrever a tarefa que você deseja adicionar.'
 				ref={inputRef}
-				placeholder='Adicione uma nova tarefa'
+				placeholder='Adicione uma nova tarefa.'
 				value={text}
 				onChange={setText}
 			/>
 
-			<Button onPress={handleOnPress} disabled={isEmptyString(text)}>
-				<Icons.Plus />
+			<Button
+				accessibilityLabel='Adicionar tarefa nova.'
+				onPress={handleOnPress}
+				disabled={isEmptyString(text)}
+			>
+				<Icons.Plus accessibilityLabel='Ícone de "mais" indicando ação de adição de item.' />
 			</Button>
 		</View>
 	);

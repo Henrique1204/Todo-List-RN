@@ -13,10 +13,11 @@ interface ICheckBoxProps {
 	size?: number;
 }
 
-const CheckBox: React.FC<ICheckBoxProps> = ({
+const CheckBox: IComponent<ICheckBoxProps> = ({
 	initialValue = false,
 	size = 18,
 	onChange,
+	...props
 }) => {
 	const [checked, setChecked] = React.useState<boolean>(initialValue);
 
@@ -33,9 +34,16 @@ const CheckBox: React.FC<ICheckBoxProps> = ({
 
 	return (
 		<TouchableOpacity
+			accessible
+			accessibilityRole='radio'
+			role='radio'
+			accessibilityState={{
+				checked: checked,
+			}}
 			activeOpacity={1}
 			onPress={handleOnPress}
 			style={Styles.container}
+			{...props}
 		>
 			<View
 				style={uniteStyles(
@@ -44,7 +52,9 @@ const CheckBox: React.FC<ICheckBoxProps> = ({
 					checked && Styles.checked
 				)}
 			>
-				{checked && <Icons.Check />}
+				{checked && (
+					<Icons.Check accessibilityLabel='Ícone de "visto" sinalizando que o checkbox foi marcado.' />
+				)}
 			</View>
 		</TouchableOpacity>
 	);

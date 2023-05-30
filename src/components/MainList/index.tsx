@@ -23,8 +23,11 @@ const MainList: React.FC<IMainListProps> = ({
 	removeTask,
 }) => {
 	return (
-		<View style={Styles.container}>
+		<View accessible style={Styles.container}>
 			<FlatList
+				accessibilityLabel='Lista de tarefas.'
+				role='list'
+				accessibilityRole='list'
 				data={data}
 				keyExtractor={({ id }) => `list-card-${id}`}
 				renderItem={({ item }) => (
