@@ -51,10 +51,20 @@ const Home: React.FC = () => {
 		updateTasksList();
 	};
 
-	const removeTask: removeTaskFn = async (id) => {
-		await removeTaskStorage(id);
+	const removeTask: removeTaskFn = (id) => {
+		const confirmAction = async () => {
+			await removeTaskStorage(id);
 
-		updateTasksList();
+			updateTasksList();
+		};
+
+		Alert.alert('Remover', `Você tem certeza que deseja remover essa tarefa?`, [
+			{
+				text: 'Sim',
+				onPress: confirmAction,
+			},
+			{ text: 'Não' },
+		]);
 	};
 
 	React.useEffect(() => {
