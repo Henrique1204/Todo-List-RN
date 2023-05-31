@@ -1,8 +1,8 @@
-export type updateTaskFn = (id: number, completed: boolean) => void;
-export type removeTaskFn = (id: number) => void;
+export type updateTaskFn = (task: ITask) => void;
+export type removeTaskFn = (id: string) => void;
 
 export interface IListCardProps {
-	id: number;
+	id: string;
 	content: string;
 	completed: boolean;
 

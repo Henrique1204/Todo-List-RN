@@ -40,7 +40,7 @@ const MainList: React.FC<IMainListProps> = ({
 						<ListCount
 							label='Concluídas'
 							color='purple'
-							count={data.filter(({ completed }) => completed).length}
+							count={data.filter((task) => task?.completed).length}
 						/>
 					</View>
 				}

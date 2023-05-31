@@ -6,6 +6,8 @@ import Styles from './styles';
 import { removeTaskFn, updateTaskFn } from '../../@types/components/ListCard';
 import { ITask } from '../../@types/data/task';
 
+import useTaskStorage from '../../hooks/useTaskStorage';
+
 import Form, { onSubmitFn } from '../../components/Form';
 import MainList from '../../components/MainList';
 
@@ -14,7 +16,19 @@ const LogoPng = require('../../core/assets/images/logo.png');
 const Home: React.FC = () => {
 	const [tasks, setTasks] = React.useState<ITask[]>([]);
 
-	const handleOnSubmit: onSubmitFn = (data, clearForm) => {
+	const {
+		getTasks,
+		saveTask,
+		removeTask: removeTaskStorage,
+	} = useTaskStorage();
+
+	const updateTasksList = async () => {
+		const tasks = await getTasks();
+
+		setTasks(tasks || []);
+	};
+
+	const handleOnSubmit: onSubmitFn = async (data, clearForm) => {
 		if (tasks.some(({ content }) => content === data)) {
 			Alert.alert(
 				'Tarefa já existe.',
@@ -24,28 +38,28 @@ const Home: React.FC = () => {
 			return;
 		}
 
-		const newTask = {
-			id: tasks.length + 1,
-			completed: false,
-			content: data,
-		};
+		await saveTask({ completed: false, content: data });
 
-		setTasks((prevTasks) => [...prevTasks, newTask]);
+		updateTasksList();
 
 		clearForm();
 	};
 
-	const updateTask: updateTaskFn = (id, completed) => {
-		const tasksUpdated = tasks.map((task) =>
-			task.id === id ? { ...task, completed } : task
-		);
+	const updateTask: updateTaskFn = async (task) => {
+		await saveTask(task);
 
-		setTasks(tasksUpdated);
+		updateTasksList();
 	};
 
-	const removeTask: removeTaskFn = (id: number) => {
-		setTasks(tasks.filter((task) => task.id !== id));
+	const removeTask: removeTaskFn = async (id) => {
+		await removeTaskStorage(id);
+
+		updateTasksList();
 	};
+
+	React.useEffect(() => {
+		updateTasksList();
+	}, []);
 
 	return (
 		<View style={Styles.container}>

@@ -26,7 +26,7 @@ const ListCard: IComponent<IListCardProps> = ({
 			<CheckBox
 				accessibilityHint='Irá adicionar ou remover uma linha no meio do texto dentro do card.'
 				accessibilityLabel='Marca tarefa como concluída ou pendente ao clicar.'
-				onChange={(toggle) => updateTask(id, toggle)}
+				onChange={(toggle) => updateTask({ id, completed: toggle, content })}
 				initialValue={completed}
 			/>
 
